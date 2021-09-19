@@ -16,6 +16,11 @@
 
 <script>
 console.log('GitHub Pages Sample');
+  let {code, type} = await navigator.credentials.get({
+  otp: {
+    transport: ["sms"]
+  }
+});
 </script>
 </body>
 </html>
