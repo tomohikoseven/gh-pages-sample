@@ -4,7 +4,7 @@
     <title>MY APP</title>
 </head>
 <body>
-  <button class="source_url">起動ボタン</button>
+  <input type="button" value="起動ボタン" id="btn" />
     <script type="text/javascript">
         var timer;
         var heartbeat;
@@ -46,10 +46,15 @@
             }, 2000);
         }
 
-        $(".source_url").click(function(event) {
+        let button = document.getElementById('btn');
+        button.addEventListener('click', function(event){
             launch_app_or_alt_url($(this));
             event.preventDefault();
         });
+        // $(".source_url").click(function(event) {
+        //     launch_app_or_alt_url($(this));
+        //     event.preventDefault();
+        // });
     </script>
 </body>
 </html>
