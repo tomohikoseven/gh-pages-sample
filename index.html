@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Webからスマホアプリ起動を試す。</title>
-<link rel="stylesheet" href="style.css">
+    <title>MY APP</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/useragent.js"></script>
 </head>
-
 <body>
-  <!-- <a href="comgooglemaps://host/">Google Mapを起動する</a> -->
-  <!-- <a href="intent://0,0?q=東京スカイツリー#Intent;scheme=geo;package=com.google.android.apps.maps;end">Google Mapを起動する(Android)</a> -->
-  <a href="intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;">Twitterを起動する。(Android)</a>
-  <!-- <a href="comgooglemaps://?q=東京スカイツリー2&zoom=15">Google Mapを起動する(iOS)</a> -->
-  <a href="twitter://status?id=1314821821552717824">Twitterを起動する。(iOS)</a>
+<script>
+    const IOS_STORE_URL = "https://apps.apple.com/jp/app/twitter-%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC/id333903271";
+    const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US"
+    const MY_WEB_PAGE_URL = "https://example.com";
+    const IOS_APP_SCHEMA = "twitter://";
+    const ANDROID_APP_SCHEMA = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;";
+    const USER_AGENT_NOT_SMART_PHONE = -1
+    const USER_AGENT_ANDROID = 0
+    const USER_AGENT_IOS = 1
+    const LAG_TIME = 400;
+    const TIMEOUT = 1000;
+    const useragent = MY_APP.UserAgent();
+
+    $(function() {
+        // if (MY_APP.UserAgent() === USER_AGENT_NOT_SMART_PHONE) {
+        if (useragent === USER_AGENT_NOT_SMART_PHONE) {
+            window.location = MY_WEB_PAGE_URL;
+            return false;
+        }
+        // if (MY_APP.UserAgent() === USER_AGENT_ANDROID) {
+        if (useragent === USER_AGENT_ANDROID) {
+          $("body").append("<iframe src='" + ANDROID_APP_SCHEMA  + "' style='display:none'/>");
+        }
+        // else if(MY_APP.UserAgent() === USER_AGENT_IOS ) {
+        else if(useragent === USER_AGENT_IOS ) {
+          $("body").append("<iframe src='" + IOS_APP_SCHEMA  + "' style='display:none'/>");
+        }
+
+        // $("body").append("<iframe src='" + MY_APP_SCHEMA  + "' style='display:none'/>");
+        var checkedAt = (new Date()).getTime();
+        window.setTimeout(function() {
+            var lagtime = (new Date()).getTime() - checkedAt;
+            $("iframe").remove();
+            if (lagtime > LAG_TIME) {
+                window.location = useragent ? IOS_STORE_URL : ANDROID_STORE_URL;
+                return;
+            }
+        }, TIMEOUT);
+    });
+</script>
 </body>
 </html>
