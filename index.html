@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。</p>
+<p>ボタンをクリックしてください。1</p>
 
 <input type="button" value="button" id="btn">
 
@@ -17,10 +17,12 @@
         const ua = navigator.userAgent
         if (/android/i.test(ua)) {
             console.log("Android")
+            document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
         }
         else if (/iPad|iPhone|iPod/.test(ua)
             || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)){
             console.log("iOS")
+            document.location.href = "twitter://status?id=1314821821552717824";
         }
         else {
             console.log("Other")
