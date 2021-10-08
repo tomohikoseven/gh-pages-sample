@@ -11,21 +11,21 @@
 <input type="button" value="button" id="btn">
 
 <script>
-    const ua = navigator.userAgent
-    if (/android/i.test(ua)) {
-        console.log("Android")
-    }
-    else if (/iPad|iPhone|iPod/.test(ua)
-        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)){
-        console.log("iOS")
-    }
-    else {
-        console.log("Other")
-    }
-
     let button = document.getElementById('btn');
 
     button.addEventListener('click', function(event){
+        const ua = navigator.userAgent
+        if (/android/i.test(ua)) {
+            console.log("Android")
+        }
+        else if (/iPad|iPhone|iPod/.test(ua)
+            || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)){
+            console.log("iOS")
+        }
+        else {
+            console.log("Other")
+        }
+
         let count = event.detail;
         console.log('Click count is ' + count);
     });
