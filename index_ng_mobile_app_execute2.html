@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MY APP</title>
+</head>
+<body>
+  <input type="button" value="起動ボタン" id="btn" />
+  <p>test</p>
+    <script type="text/javascript">
+        var timer;
+        var heartbeat;
+        var lastInterval;
+
+        function clearTimers() {
+            clearTimeout(timer);
+            clearTimeout(heartbeat);
+        }
+
+        window.addEventListener("pageshow", function(evt){
+            clearTimers();
+        }, false);
+
+        window.addEventListener("pagehide", function(evt){
+            clearTimers();
+        }, false);
+
+        function getTime() {
+            return (new Date()).getTime();
+        }
+
+        // For all other browsers except Safari (which do not support pageshow and pagehide properly)
+        function intervalHeartbeat() {
+            var now = getTime();
+            var diff = now - lastInterval - 200;
+            lastInterval = now;
+            if(diff > 1000) { // don't trigger on small stutters less than 1000ms
+                clearTimers();
+            }
+        }
+
+        function launch_app_or_alt_url(el) {
+            lastInterval = getTime();
+            heartbeat = setInterval(intervalHeartbeat, 200);
+            document.location = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;";
+            timer = setTimeout(function () {
+                document.location = 'https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US';
+            }, 2000);
+        }
+
+        let button = document.getElementById('btn');
+        button.addEventListener('click', function(event){
+            launch_app_or_alt_url($(this));
+            event.preventDefault();
+        });
+        // $(".source_url").click(function(event) {
+        //     launch_app_or_alt_url($(this));
+        //     event.preventDefault();
+        // });
+    </script>
+</body>
+</html>
