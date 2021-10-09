@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。3</p>
+<p>ボタンをクリックしてください。5</p>
 
 <input type="button" value="button" id="btn">
 
@@ -15,17 +15,18 @@
 
     button.addEventListener('click', function(event){
         const ua = navigator.userAgent
-        if (/android/i.test(ua)) {
-            console.log("Android")
-            document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
-        }
-        else if (/iPad|iPhone|iPod/.test(ua)){
-            console.log("iOS")
-            document.location.href = "twitter://timeline";
-        }
-        else {
-            console.log("Other")
-        }
+        document.location.href = "twitter://timeline";
+        // if (/android/i.test(ua)) {
+        //     console.log("Android")
+        //     document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+        // }
+        // else if (/iPad|iPhone|iPod/.test(ua)){
+        //     console.log("iOS")
+        //     document.location.href = "twitter://timeline";
+        // }
+        // else {
+        //     console.log("Other")
+        // }
 
         let count = event.detail;
         console.log('Click count is ' + count);
