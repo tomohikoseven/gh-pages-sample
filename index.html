@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。6</p>
+<p>ボタンをクリックしてください。5</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -17,7 +17,7 @@
     button.addEventListener('click', function(event){
         let userAgent = document.getElementById('userAgent')
         const ua = navigator.userAgent
-        userAgent.value = ua;
+        userAgent.textContent = ua;
         if (/android/i.test(ua)) {
             console.log("Android")
             // userAgent.value = "Android";
