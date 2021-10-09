@@ -19,8 +19,7 @@
             console.log("Android")
             document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
         }
-        else if (/iPad|iPhone|iPod/.test(ua)
-            || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)){
+        else if (/iPad|iPhone|iPod/.test(ua)){
             console.log("iOS")
             document.location.href = "twitter://status?id=1314821821552717824";
         }
