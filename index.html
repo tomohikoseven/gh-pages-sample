@@ -7,26 +7,32 @@
 <body>
 
 <p>ボタンをクリックしてください。3</p>
+<p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
 
 <script>
     let button = document.getElementById('btn');
+    let userAgent = document.getElementById('userAgent')
 
     button.addEventListener('click', function(event){
         const ua = navigator.userAgent
+        userAgent.value = ua;
         if (/android/i.test(ua)) {
             console.log("Android")
+            // userAgent.value = "Android";
             document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
             console.log("iOS")
+            // userAgent.value = "iOS";
             document.location.href = "twitter://timeline";
             // setTimeout(function(){
             //     document.location.href = "https://apps.apple.com/jp/app/twitter-%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC/id333903271"
             // }, 10000);
         }
         else {
+            // userAgent.value = "Other";
             console.log("Other")
         }
 
