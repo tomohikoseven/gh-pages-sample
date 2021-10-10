@@ -23,16 +23,22 @@
             // userAgent.value = "Android";
             document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
         }
-        else if (/iPad|iPhone|iPod|Mac OS/.test(ua)){
+        else if (/iPad|iPhone|iPod/.test(ua)){
             console.log("iOS")
             // document.location.href = "https://apps.apple.com/jp/app/twitter-%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC/id333903271"
             // document.location.href = "twitter://timeline";
             // document.location.href = "cocoa://";
-            document.location.href = "calshow://";
+            var checkdAt = new Date();
             setTimeout(function(){
+                var t = new Date() - checkdAt;
+                if(t < 20000){
+                    alert(t);
+                    // *** app storeへ遷移 ***
+                    document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
+                }
                 // document.location.href = "https://apps.apple.com/jp/app/twitter-%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC/id333903271"
-                document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
             }, 2000);
+            document.location.href = "calshow://";
         }
         else {
             // userAgent.value = "Other";
