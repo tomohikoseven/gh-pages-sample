@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。31</p>
+<p>ボタンをクリックしてください。16</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -38,12 +38,12 @@
                 }
                 // document.location.href = "https://apps.apple.com/jp/app/twitter-%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC/id333903271"
             }, 2000);
-            //document.location.href = "calshow://";
-            var win = window.open("calsho://", '_self');
-            if( win ) {
-                userAgent.textContent = win.location.href;
-                clearTimeout(id);
-            } 
+            document.location.href = "calshow://";
+            //var win = window.open("calsho://", '_self');
+            //if( win ) {
+            //    userAgent.textContent = win.location.href;
+            //    clearTimeout(id);
+            //} 
         }
         else {
             // userAgent.value = "Other";
