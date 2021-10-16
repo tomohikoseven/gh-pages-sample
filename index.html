@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。33</p>
+<p>ボタンをクリックしてください。34</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -46,7 +46,7 @@
             //} 
             var win = window.open("calsho://", '_system');
             if( win ) {
-                userAgent.textContent = win.location.href;
+                userAgent.textContent = win.document;
                 clearTimeout(id);
             } 
 
