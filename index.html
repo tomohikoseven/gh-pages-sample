@@ -14,40 +14,47 @@
 <script>
     let button = document.getElementById('btn');
 
-    button.addEventListener('click', function(event){
+    window.onload = function() {
         let userAgent = document.getElementById('userAgent')
         const ua = navigator.userAgent
         userAgent.textContent = ua;
         if (/android/i.test(ua)) {
-            console.log("Android")
-            // userAgent.value = "Android";
-            document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+            // document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+            document.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
-            console.log("iOS")
-            // document.location.href = "https://apps.apple.com/jp/app/twitter-%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC/id333903271"
-            // document.location.href = "twitter://timeline";
-            // document.location.href = "cocoa://";
-            var checkdAt = new Date();
-            setTimeout(function(){
-                var t = new Date() - checkdAt;
-                if(t < 20000){
-                    //alert(t);
-                    // *** app storeへ遷移 ***
-                    document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
-                }
-                // document.location.href = "https://apps.apple.com/jp/app/twitter-%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC/id333903271"
-            }, 2000);
-            document.location.href = "calshow://";
+            document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
         }
         else {
-            // userAgent.value = "Other";
             console.log("Other")
             console.log(ua);
             console.log(userAgent.value);
         }
+    }
+    // button.addEventListener('click', function(event){
+    //     let userAgent = document.getElementById('userAgent')
+    //     const ua = navigator.userAgent
+    //     userAgent.textContent = ua;
+    //     if (/android/i.test(ua)) {
+    //         document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+    //     }
+    //     else if (/iPad|iPhone|iPod/.test(ua)){
+    //         var checkdAt = new Date();
+    //         setTimeout(function(){
+    //             var t = new Date() - checkdAt;
+    //             if(t < 20000){
+    //                 document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
+    //             }
+    //         }, 2000);
+    //         document.location.href = "calshow://";
+    //     }
+    //     else {
+    //         console.log("Other")
+    //         console.log(ua);
+    //         console.log(userAgent.value);
+    //     }
 
-    });
+    // });
 </script>
 
 </body>
