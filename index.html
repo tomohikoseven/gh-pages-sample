@@ -30,8 +30,9 @@
             // document.location.href = "market://details?id=com.twitter.android";
             // NG
             // window.open("market://details?id=com.twitter.android", "_blank");
-            //
-            window.open("market://details?id=com.twitter.android", "_self");
+            // NG なにも起きない.
+            // window.open("market://details?id=com.twitter.android", "_self");
+            button.click();
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
             document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
