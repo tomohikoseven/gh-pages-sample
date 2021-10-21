@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。56</p>
+<p>ボタンをクリックしてください。57</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -43,7 +43,6 @@
 
     });
     window.onload = function() {
-        let btn = document.getElementById('btn');
         let userAgent = document.getElementById('userAgent')
         const ua = navigator.userAgent
         userAgent.textContent = ua;
@@ -63,11 +62,13 @@
             // window.open("market://details?id=com.twitter.android", "_self");
             // NG なにも起きない
             // btn.click();
-            userAgent.textContent = "clickしたよ。"
             setTimeout(() => {
                 // NG ブラウザでPlay Storeが開く.
                 // location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
-                location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
+                // NG なにも起きない。
+                // location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
+                button.click();
+                userAgent.textContent = "clickしたよ。"
             }, 1000);
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
