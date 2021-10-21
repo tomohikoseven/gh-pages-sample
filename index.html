@@ -14,6 +14,34 @@
 <script>
     let button = document.getElementById('btn');
 
+    button.addEventListener('click', function(event){
+        let userAgent = document.getElementById('userAgent')
+        const ua = navigator.userAgent
+        userAgent.textContent = ua;
+        if (/android/i.test(ua)) {
+            // NG
+            // document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+            // OK
+            // document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            document.location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
+        }
+        else if (/iPad|iPhone|iPod/.test(ua)){
+            var checkdAt = new Date();
+            setTimeout(function(){
+                var t = new Date() - checkdAt;
+                if(t < 20000){
+                    document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
+                }
+            }, 2000);
+            document.location.href = "calshow://";
+        }
+        else {
+            console.log("Other")
+            console.log(ua);
+            console.log(userAgent.value);
+        }
+
+    });
     window.onload = function() {
         let btn = document.getElementById('btn');
         let userAgent = document.getElementById('userAgent')
@@ -46,34 +74,6 @@
             console.log(userAgent.value);
         }
     }
-    button.addEventListener('click', function(event){
-        let userAgent = document.getElementById('userAgent')
-        const ua = navigator.userAgent
-        userAgent.textContent = ua;
-        if (/android/i.test(ua)) {
-            // NG
-            // document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
-            // OK
-            // document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
-            document.location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
-        }
-        else if (/iPad|iPhone|iPod/.test(ua)){
-            var checkdAt = new Date();
-            setTimeout(function(){
-                var t = new Date() - checkdAt;
-                if(t < 20000){
-                    document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
-                }
-            }, 2000);
-            document.location.href = "calshow://";
-        }
-        else {
-            console.log("Other")
-            console.log(ua);
-            console.log(userAgent.value);
-        }
-
-    });
 </script>
 
 </body>
