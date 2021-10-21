@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。51</p>
+<p>ボタンをクリックしてください。52</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -15,6 +15,7 @@
     let button = document.getElementById('btn');
 
     window.onload = function() {
+        let btn = document.getElementById('btn');
         let userAgent = document.getElementById('userAgent')
         const ua = navigator.userAgent
         userAgent.textContent = ua;
@@ -32,7 +33,8 @@
             // window.open("market://details?id=com.twitter.android", "_blank");
             // NG なにも起きない.
             // window.open("market://details?id=com.twitter.android", "_self");
-            button.click();
+            //
+            btn.click();
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
             document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
