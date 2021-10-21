@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。49</p>
+<p>ボタンをクリックしてください。50</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -28,8 +28,10 @@
             //document.location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
             // NG
             // document.location.href = "market://details?id=com.twitter.android";
+            // NG
+            // window.open("market://details?id=com.twitter.android", "_blank");
             //
-            window.open("market://details?id=com.twitter.android", "_blank");
+            window.open("market://details?id=com.twitter.android", "_self");
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
             document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
