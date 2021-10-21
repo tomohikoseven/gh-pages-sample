@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。54</p>
+<p>ボタンをクリックしてください。55</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -61,9 +61,12 @@
             // window.open("market://details?id=com.twitter.android", "_blank");
             // NG なにも起きない.
             // window.open("market://details?id=com.twitter.android", "_self");
-            //
-            btn.click();
+            // NG なにも起きない
+            // btn.click();
             userAgent.textContent = "clickしたよ。"
+            setTimeout(() => {
+                location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            }, 1000);
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
             document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
