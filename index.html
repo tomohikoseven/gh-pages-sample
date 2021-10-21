@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>ボタンをクリックしてください。55</p>
+<p>ボタンをクリックしてください。56</p>
 <p id="userAgent">userAgent</p>
 
 <input type="button" value="button" id="btn">
@@ -65,7 +65,9 @@
             // btn.click();
             userAgent.textContent = "clickしたよ。"
             setTimeout(() => {
-                location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+                // NG ブラウザでPlay Storeが開く.
+                // location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+                location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
             }, 1000);
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
