@@ -37,8 +37,11 @@
         const ua = navigator.userAgent
         userAgent.textContent = ua;
         if (/android/i.test(ua)) {
+            // NG
             // document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
-            document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            // OK
+            // document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            document.location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
             var checkdAt = new Date();
