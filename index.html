@@ -20,10 +20,13 @@
         userAgent.textContent = ua;
         if (/android/i.test(ua)) {
             // document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+            // ブラウザでPlay Storeが開く
             //document.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
-            // document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            // NG
             //document.location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
-            document.location.href = "market://details?id=com.twitter.android";
+            // NG
+            // document.location.href = "market://details?id=com.twitter.android";
         }
         else if (/iPad|iPhone|iPod/.test(ua)){
             document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
