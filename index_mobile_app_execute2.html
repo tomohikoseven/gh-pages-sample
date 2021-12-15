@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>サンプル</title>
+</head>
+<body>
+
+<p>ボタンをクリックしてください。57</p>
+<p id="userAgent">userAgent</p>
+
+<input type="button" value="button" id="btn">
+
+<script>
+    let button = document.getElementById('btn');
+
+    button.addEventListener('click', function(event){
+        let userAgent = document.getElementById('userAgent')
+        const ua = navigator.userAgent
+        userAgent.textContent = ua;
+        if (/android/i.test(ua)) {
+            // NG
+            // document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+            // OK
+            // document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            document.location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
+        }
+        else if (/iPad|iPhone|iPod/.test(ua)){
+            var checkdAt = new Date();
+            setTimeout(function(){
+                var t = new Date() - checkdAt;
+                if(t < 20000){
+                    document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
+                }
+            }, 2000);
+            document.location.href = "calshow://";
+        }
+        else {
+            console.log("Other")
+            console.log(ua);
+            console.log(userAgent.value);
+        }
+
+    });
+    window.onload = function() {
+        let userAgent = document.getElementById('userAgent')
+        const ua = navigator.userAgent
+        userAgent.textContent = ua;
+        if (/android/i.test(ua)) {
+            // document.location.href = "intent://post?message=本文#Intent;scheme=twitter;package=com.twitter.android;end;"
+            // ブラウザでPlay Storeが開く
+            //document.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            // ブラウザでPlay Storeが開く
+            // document.location.href = "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+            // NG
+            //document.location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
+            // NG
+            // document.location.href = "market://details?id=com.twitter.android";
+            // NG
+            // window.open("market://details?id=com.twitter.android", "_blank");
+            // NG なにも起きない.
+            // window.open("market://details?id=com.twitter.android", "_self");
+            // NG なにも起きない
+            // btn.click();
+            setTimeout(() => {
+                // NG ブラウザでPlay Storeが開く.
+                location.href = "https://play.google.com/store/apps/details?id=com.twitter.android&hl=ja&gl=US";
+                // NG なにも起きない。
+                // location.href = "market://details?id=com.twitter.android&hl=ja&gl=US";
+                // button.click();
+                // userAgent.textContent = "clickしたよ。"
+            }, 1000);
+        }
+        else if (/iPad|iPhone|iPod/.test(ua)){
+            document.location.href = "https://apps.apple.com/jp/app/id1516764458";  // Cocoa
+        }
+        else {
+            console.log("Other")
+            console.log(ua);
+            console.log(userAgent.value);
+        }
+    }
+</script>
+
+</body>
+</html>
