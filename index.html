@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>SMS OTPの自動入力検証</title>
+    <title>ラジオボタン表示調査</title>
     <link rel="stylesheet" href="style.css" />
     <style>
       .radio {
@@ -14,16 +14,22 @@
         cursor: pointer;
         align-items: flex-start;
       }
+      .radio-wrap {
+        list-style: none;
+        margin-left: 16px;
+      }
     </style>
   </head>
 
   <body>
-    <h1>ラジオボタン調査3</h1>
-    <label class="radio-label">
-      <div class="radio-item-left">
-        <input type="radio" class="radio" name="test" /> スタイル
-      </div>
-    </label>
+    <h1>ラジオボタン調査4</h1>
+    <div class="radio-wrap">
+      <label class="radio-label">
+        <div class="radio-item-left">
+          <input type="radio" class="radio" name="test" /> スタイル
+        </div>
+      </label>
+    </div>
     <input type="radio" name="test" /> No スタイル
   </body>
 </html>
