@@ -1,48 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>SMS OTPの自動入力検証</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SMS OTPの自動入力検証</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .radio {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+  </head>
 
-<body>
-  <h1>SMS OTPの自動入力を検証しています。</h1>
-  <label>ワンタイムパスワード v1.9</label>
-  <!-- <input type="text"/> -->
-  <input data-name="sms-otp" type="tel" inputmode="numeric" autocomplete="one-time-code"/>
-  <input data-name="sms-otp2" type="tel" inputmode="numeric" autocomplete="one-time-code"/>
-  <a href="#"><button>戻る</button></a>
-
-<!-- <script>
-console.log('GitHub Pages Sample');
-if ('OTPCredential' in window) {
-  window.addEventListener('DOMContentLoaded', e => {
-    const input = document.querySelector('input[autocomplete="one-time-code"]');
-    if (!input) return;
-    // Cancel the WebOTP API if the form is submitted manually.
-    const ac = new AbortController();
-    const form = input.closest('form');
-    if (form) {
-      form.addEventListener('submit', e => {
-        // Cancel the WebOTP API.
-        ac.abort();
-      });
-    }
-    // Invoke the WebOTP API
-    navigator.credentials.get({
-      otp: { transport:['sms'] },
-      signal: ac.signal
-    }).then(otp => {
-      console.log("in navigator.")
-      input.value = otp.code;
-      // Automatically submit the form when an OTP is obtained.
-      if (form) form.submit();
-    }).catch(err => {
-      console.log("in navigator error.")
-      console.log(err);
-    });
-  });
-}</script> -->
-</body>
+  <body>
+    <h1>ラジオボタン調査</h1>
+    <input type="radio" class="radio" /> スタイル <input type="radio" /> No
+    スタイル
+  </body>
 </html>
