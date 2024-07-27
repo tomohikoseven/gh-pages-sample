@@ -7,6 +7,12 @@
     <script>
         const ua = window.navigator.userAgent;
         console.log(ua);
+
+        var b = getElementByTagName("body");
+        var ele = g.item(0);
+        var new_ele=document.createElement("div");
+        new_ele.innerHTML=ua;
+        ele.appendChild(new_ele);
     </script>
 </body>
 </html>
